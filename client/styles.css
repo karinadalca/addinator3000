@@ -15,6 +15,11 @@
 	text-align: center;
 }
 
+#form-numbers button{
+	font-size: 36px;
+	margin-top: 50px;
+}
+
 .sum {
 	font-size: 48px;
 	font-weight: bold;
