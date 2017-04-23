@@ -4,6 +4,7 @@ const url = require('url');
 
 
 const server = http.createServer(function(request, response) {
+
 	const urlPath = url.parse(request.url).pathname;
 	let filePath = `./client/${urlPath}`;
 
@@ -11,12 +12,12 @@ const server = http.createServer(function(request, response) {
 		if (!err && fileInfo.isDirectory()) {
 			filePath += '/index.html';
 		}
+
 		fs.exists(filePath, function(doesExist) {
 			if (!doesExist) {
 				response.statusCode = 404;
 				response.end(`Resource not found: "${urlPath}"`);
-			}
-
+			} else {
 			fs.readFile(filePath, (err, data) => {
 				if (err){
 					response.statusCode = 500;
@@ -24,7 +25,8 @@ const server = http.createServer(function(request, response) {
 				} else {
 					response.end(data.toString('utf-8'));
 				}
-			});
+		    });
+		}
 		});
 	});
 });
