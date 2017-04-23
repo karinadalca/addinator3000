@@ -10,9 +10,5 @@
 	"license": "MIT",
 	"dependencies": {
 		"browserify": "^14.1.0"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/karinadalca/addinator3000.git"
 	}
 }
